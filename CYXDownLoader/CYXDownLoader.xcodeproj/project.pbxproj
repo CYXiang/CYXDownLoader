@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		314CFF5E1F6D1F64002395DA /* CYXDownLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 314CFF5D1F6D1F64002395DA /* CYXDownLoader.m */; };
+		31C7332F1F6E725B00012DBF /* CYXFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C7332E1F6E725B00012DBF /* CYXFileTool.m */; };
 		31D1CE7F1F6D19B40040BCAC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D1CE7E1F6D19B40040BCAC /* AppDelegate.m */; };
 		31D1CE821F6D19B40040BCAC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D1CE811F6D19B40040BCAC /* ViewController.m */; };
 		31D1CE851F6D19B40040BCAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D1CE831F6D19B40040BCAC /* Main.storyboard */; };
@@ -16,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		314CFF5C1F6D1F64002395DA /* CYXDownLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYXDownLoader.h; sourceTree = "<group>"; };
+		314CFF5D1F6D1F64002395DA /* CYXDownLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYXDownLoader.m; sourceTree = "<group>"; };
+		31C7332D1F6E725B00012DBF /* CYXFileTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYXFileTool.h; sourceTree = "<group>"; };
+		31C7332E1F6E725B00012DBF /* CYXFileTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYXFileTool.m; sourceTree = "<group>"; };
 		31D1CE7A1F6D19B40040BCAC /* CYXDownLoader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CYXDownLoader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D1CE7D1F6D19B40040BCAC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		31D1CE7E1F6D19B40040BCAC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -39,6 +45,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		314CFF5B1F6D1F43002395DA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				314CFF5C1F6D1F64002395DA /* CYXDownLoader.h */,
+				314CFF5D1F6D1F64002395DA /* CYXDownLoader.m */,
+				31C7332D1F6E725B00012DBF /* CYXFileTool.h */,
+				31C7332E1F6E725B00012DBF /* CYXFileTool.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		31D1CE711F6D19B40040BCAC = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +75,7 @@
 		31D1CE7C1F6D19B40040BCAC /* CYXDownLoader */ = {
 			isa = PBXGroup;
 			children = (
+				314CFF5B1F6D1F43002395DA /* Classes */,
 				31D1CE7D1F6D19B40040BCAC /* AppDelegate.h */,
 				31D1CE7E1F6D19B40040BCAC /* AppDelegate.m */,
 				31D1CE801F6D19B40040BCAC /* ViewController.h */,
@@ -143,6 +161,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				31D1CE821F6D19B40040BCAC /* ViewController.m in Sources */,
+				31C7332F1F6E725B00012DBF /* CYXFileTool.m in Sources */,
+				314CFF5E1F6D1F64002395DA /* CYXDownLoader.m in Sources */,
 				31D1CE8D1F6D19B40040BCAC /* main.m in Sources */,
 				31D1CE7F1F6D19B40040BCAC /* AppDelegate.m in Sources */,
 			);
