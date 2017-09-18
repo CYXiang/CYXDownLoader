@@ -80,8 +80,8 @@
         NSLog(@"删除临时缓存");
         [CYXFileTool removeFile:self.downLoadingPath];
         NSLog(@"重新开始下载");
-        [self downLoaderWithURL:response.URL];
         completionHandler(NSURLSessionResponseCancel);
+        [self downLoaderWithURL:response.URL];
         return;
     }
     
