@@ -21,16 +21,32 @@
 @property (nonatomic, copy) NSString *downLoadedPath;
 @property (nonatomic, copy) NSString *downLoadingPath;
 @property (nonatomic, strong) NSOutputStream *outputStream;
+@property (nonatomic, weak) NSURLSessionDataTask *dataTask; ///< 当前下载任务
 
 @end
 
 @implementation CYXDownLoader
+
 - (NSURLSession *)session {
     if (!_session) {
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
         _session = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:[NSOperationQueue mainQueue]];
     }
     return _session;
+}
+
+- (void)downLoader:(NSURL *)url
+      downLoadInfo:(DownLoadInfoType)downLoadInfo
+          progress:(ProgressBlockType)progressBlock
+           success:(SuccessBlockType)successBlock
+            failed:(FailedBlockType)failedBlock {
+    
+    self.downLoadInfo = downLoadInfo;
+    self.progressChange = progressBlock;
+    self.successBlock = successBlock;
+    self.failedBlock = failedBlock;
+    
+    [self downLoaderWithURL:url];
 }
 
 - (void)downLoaderWithURL:(NSURL *)url {
@@ -115,6 +131,26 @@
     
 }
 
+#pragma mark - public method
+
+- (void)resumeCurrentTask {
+    
+    
+}
+
+- (void)pauseCurrentTask {
+    
+}
+
+- (void)cancelCurrentTask {
+    
+}
+
+- (void)cancelAndClean {
+    
+}
+
+
 #pragma mark - private method
 
 /**
@@ -133,4 +169,28 @@
     [dataTask resume];
 }
 
+#pragma mark - setter
+
+- (void)setState:(CYXDownLoadState)state {
+    if (_state == state) {
+        return;
+    }
+    _state = state;
+    if (self.stateChange) {
+        self.stateChange(_state);
+    }
+    if (_state == CYXDownLoadStateSuccess && self.successBlock) {
+        self.successBlock(self.downLoadedPath);
+    }
+    if (_state == CYXDownLoadStateFailed && self.failedBlock) {
+        self.failedBlock();
+    }
+}
+
+- (void)setProgress:(float)progress {
+    _progress = progress;
+    if (self.progressChange) {
+        self.progressChange(_progress);
+    }
+}
 @end

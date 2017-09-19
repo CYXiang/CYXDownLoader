@@ -10,9 +10,9 @@
 
 @interface CYXFileTool : NSObject
 
-+ (BOOL)fileExists:(NSString *)filePath;
-+ (long long)fileSize:(NSString *)filePath;
-+ (void)moveFile:(NSString *)fromPath toPath:(NSString *)toPath;
-+ (void)removeFile:(NSString *)filePath;
++ (BOOL)fileExists:(NSString *)filePath; ///< 交验文件是否存在
++ (long long)fileSize:(NSString *)filePath; ///< 获取文件大小
++ (void)moveFile:(NSString *)fromPath toPath:(NSString *)toPath; ///< 移动文件到另外一个路径
++ (void)removeFile:(NSString *)filePath; ///< 移除文件
 
 @end
