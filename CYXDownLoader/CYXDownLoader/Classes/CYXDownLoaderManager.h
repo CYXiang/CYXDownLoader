@@ -7,7 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CYXDownLoader.h"
 
 @interface CYXDownLoaderManager : NSObject
+
++ (instancetype)shareInstance;
+
+- (void)downLoader:(NSURL *)url
+      downLoadInfo:(DownLoadInfoType)downLoadInfo
+          progress:(ProgressBlockType)progressBlock
+           success:(SuccessBlockType)successBlock
+            failed:(FailedBlockType)failedBlock;
+
+- (void)pauseWithURL:(NSURL *)url;
+- (void)resumeWithURL:(NSURL *)url;
+- (void)cancelWithURL:(NSURL *)url;
+
+- (void)pauseAll;
+- (void)resumeAll;
 
 @end
