@@ -33,11 +33,11 @@ typedef void(^StateChangeType)(CYXDownLoadState state);
  @param successBlock 成功回调
  @param failedBlock 失败回调
  */
-- (void)downLoader:(NSURL *)url
-      downLoadInfo:(DownLoadInfoType)downLoadInfo
-          progress:(ProgressBlockType)progressBlock
-           success:(SuccessBlockType)successBlock
-            failed:(FailedBlockType)failedBlock;
+- (void)downLoaderWithURL:(NSURL *)url
+             downLoadInfo:(DownLoadInfoType)downLoadInfo
+                 progress:(ProgressBlockType)progressBlock
+                  success:(SuccessBlockType)successBlock
+                   failed:(FailedBlockType)failedBlock;
 
 - (void)downLoaderWithURL:(NSURL *)url; ///< 下载
 

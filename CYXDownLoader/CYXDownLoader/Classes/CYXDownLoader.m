@@ -35,11 +35,11 @@
     return _session;
 }
 
-- (void)downLoader:(NSURL *)url
-      downLoadInfo:(DownLoadInfoType)downLoadInfo
-          progress:(ProgressBlockType)progressBlock
-           success:(SuccessBlockType)successBlock
-            failed:(FailedBlockType)failedBlock {
+- (void)downLoaderWithURL:(NSURL *)url
+             downLoadInfo:(DownLoadInfoType)downLoadInfo
+                 progress:(ProgressBlockType)progressBlock
+                  success:(SuccessBlockType)successBlock
+                   failed:(FailedBlockType)failedBlock {
     
     self.downLoadInfo = downLoadInfo;
     self.progressChange = progressBlock;

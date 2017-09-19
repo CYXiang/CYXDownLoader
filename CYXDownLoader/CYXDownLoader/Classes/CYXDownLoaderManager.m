@@ -17,6 +17,14 @@
 
 @implementation CYXDownLoaderManager
 
+- (NSMutableDictionary *)downLoadInfo
+{
+    if (!_downLoadInfo) {
+        _downLoadInfo = [NSMutableDictionary dictionary];
+    }
+    return _downLoadInfo;
+}
+
 static CYXDownLoaderManager *_shareInstance;
 + (instancetype)shareInstance {
     if (!_shareInstance) {
@@ -56,7 +64,7 @@ static CYXDownLoaderManager *_shareInstance;
         self.downLoadInfo[urlMD5] = downLoader;
     }
     __weak typeof(self) weakSelf = self;
-    [downLoader downLoader:url downLoadInfo:downLoadInfo progress:progressBlock success:^(NSString *filePath) {
+    [downLoader downLoaderWithURL:url downLoadInfo:downLoadInfo progress:progressBlock success:^(NSString *filePath) {
         // 移除下载器
         [weakSelf.downLoadInfo removeObjectForKey:urlMD5];
         successBlock(filePath);
@@ -79,11 +87,15 @@ static CYXDownLoaderManager *_shareInstance;
 }
 
 - (void)pauseAll {
-    [self.downLoadInfo.allValues performSelector:@selector(pauseCurrentTask) withObject:nil];
+    for (CYXDownLoader *downLoad in self.downLoadInfo.allValues) {
+        [downLoad pauseCurrentTask];
+    }
 }
 
 - (void)resumeAll {
-    [self.downLoadInfo.allValues performSelector:@selector(resumeCurrentTask) withObject:nil];
+    for (CYXDownLoader *downLoad in self.downLoadInfo.allValues) {
+        [downLoad resumeCurrentTask];
+    }
 }
 
 @end
