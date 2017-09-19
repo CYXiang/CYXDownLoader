@@ -51,30 +51,64 @@
 
 - (void)downLoaderWithURL:(NSURL *)url {
     
+    if ([url isEqual:self.dataTask.originalRequest.URL]) {
+        if (self.state == CYXDownLoadStatePause) {
+            [self resumeCurrentTask];
+            return;
+        }
+    }
+    [self cancelCurrentTask];
+    
     NSString *fileName = url.lastPathComponent;
     
     self.downLoadedPath = [kCachePath stringByAppendingPathComponent:fileName];
     self.downLoadingPath = [kTmpPath stringByAppendingPathComponent:fileName];
     
-    // 判断url地址对应的资源是否下载完毕(下载完成的目录里面,存在这个文件)
     if ([CYXFileTool fileExists:self.downLoadedPath]) {
-        // 已经下载完成;
-        NSLog(@"已经下载完成");
+        // 资源已下载
+        self.state = CYXDownLoadStateSuccess;
         return;
     }
     
-    // 检测临时文件是否存在
     if (![CYXFileTool fileExists:self.downLoadingPath]) {
-        // 从0字节开始请求资源
+        // 资源未下载
         [self downLoadWithURL:url offset:0];
         return;
     }
     
-    // 获取本地大小
     _tmpSize = [CYXFileTool fileSize:self.downLoadingPath];
     [self downLoadWithURL:url offset:_tmpSize];
-    
 }
+
+
+#pragma mark - public method
+
+- (void)resumeCurrentTask {
+    if (self.dataTask && self.state == CYXDownLoadStatePause) {
+        [self.dataTask resume];
+        self.state = CYXDownLoadStateDownLaoding;
+    }
+}
+
+- (void)pauseCurrentTask {
+    if (self.state == CYXDownLoadStateDownLaoding) {
+        self.state = CYXDownLoadStatePause;
+        [self.dataTask suspend];
+    }
+}
+
+- (void)cancelCurrentTask {
+    self.state = CYXDownLoadStatePause;
+    [self.session invalidateAndCancel];
+    self.session = nil;
+}
+
+- (void)cancelAndClean {
+    [self cancelCurrentTask];
+    [CYXFileTool removeFile:self.downLoadingPath];
+}
+
+
 #pragma mark - NSURLSessionDataDelegate
 
 -(void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSHTTPURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler {
@@ -85,22 +119,24 @@
         _totalSize = [[contentRangeStr componentsSeparatedByString:@"/"].lastObject longLongValue];
     }
     
+    if (self.downLoadInfo) {
+        self.downLoadInfo(_totalSize);
+    }
+    
     if (_tmpSize == _totalSize) {
-        NSLog(@"移动文件到下载完成");
         [CYXFileTool moveFile:self.downLoadingPath toPath:self.downLoadedPath];
         completionHandler(NSURLSessionResponseCancel);
+        self.state = CYXDownLoadStateSuccess;
         return;
     }
     
     if (_tmpSize > _totalSize) {
-        NSLog(@"删除临时缓存");
         [CYXFileTool removeFile:self.downLoadingPath];
-        NSLog(@"重新开始下载");
         completionHandler(NSURLSessionResponseCancel);
         [self downLoaderWithURL:response.URL];
         return;
     }
-    
+    self.state = CYXDownLoadStateDownLaoding;
     // 继续接受数据
     self.outputStream = [NSOutputStream outputStreamToFileAtPath:self.downLoadingPath append:YES];
     [self.outputStream open];
@@ -109,47 +145,26 @@
 }
 
 
-- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data
-{
-    
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
+    _tmpSize += data.length;
+    self.progress = 1.0 * _tmpSize / _totalSize;
     [self.outputStream write:data.bytes maxLength:data.length];
-    
-    NSLog(@"在接受后续数据");
 }
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
     
-    NSLog(@"请求完成");
-    
     if (error == nil) {
-        
+        [CYXFileTool moveFile:self.downLoadingPath toPath:self.downLoadedPath];
+        self.state = CYXDownLoadStateSuccess;
     }else {
-        NSLog(@"有问题");
+        if (error.code == -999) {
+            self.state = CYXDownLoadStatePause;
+        } else {
+            self.state = CYXDownLoadStateFailed;
+        }
     }
-    
     [self.outputStream close];
-    
 }
-
-#pragma mark - public method
-
-- (void)resumeCurrentTask {
-    
-    
-}
-
-- (void)pauseCurrentTask {
-    
-}
-
-- (void)cancelCurrentTask {
-    
-}
-
-- (void)cancelAndClean {
-    
-}
-
 
 #pragma mark - private method
 
@@ -164,9 +179,8 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:0];
     [request setValue:[NSString stringWithFormat:@"bytes=%lld-", offset] forHTTPHeaderField:@"Range"];
     // session 分配的task, 默认情况, 挂起状态
-    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request];
-    
-    [dataTask resume];
+    self.dataTask = [self.session dataTaskWithRequest:request];
+    [self resumeCurrentTask];
 }
 
 #pragma mark - setter
