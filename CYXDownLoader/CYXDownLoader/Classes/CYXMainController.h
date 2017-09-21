@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  CYXMainController.h
 //  CYXDownLoader
 //
-//  Created by 陈燕翔 on 2017/9/16.
+//  Created by 陈燕翔 on 2017/9/21.
 //  Copyright © 2017年 陈燕翔. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface CYXMainController : UITableViewController
 
 @end
-

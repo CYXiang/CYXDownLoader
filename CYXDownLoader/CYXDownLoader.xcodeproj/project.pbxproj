@@ -7,12 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		314CFF5E1F6D1F64002395DA /* CYXDownLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 314CFF5D1F6D1F64002395DA /* CYXDownLoader.m */; };
-		31C4F2E01F703221003F4995 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C4F2DF1F703221003F4995 /* NSString+MD5.m */; };
-		31C4F2E31F703382003F4995 /* CYXDownLoaderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C4F2E21F703382003F4995 /* CYXDownLoaderManager.m */; };
-		31C7332F1F6E725B00012DBF /* CYXFileTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C7332E1F6E725B00012DBF /* CYXFileTool.m */; };
+		3177757C1F74087E005A1E16 /* CYXMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3177757B1F74087E005A1E16 /* CYXMainController.m */; };
 		31D1CE7F1F6D19B40040BCAC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D1CE7E1F6D19B40040BCAC /* AppDelegate.m */; };
-		31D1CE821F6D19B40040BCAC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D1CE811F6D19B40040BCAC /* ViewController.m */; };
 		31D1CE851F6D19B40040BCAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D1CE831F6D19B40040BCAC /* Main.storyboard */; };
 		31D1CE871F6D19B40040BCAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D1CE861F6D19B40040BCAC /* Assets.xcassets */; };
 		31D1CE8A1F6D19B40040BCAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D1CE881F6D19B40040BCAC /* LaunchScreen.storyboard */; };
@@ -20,19 +16,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		314CFF5C1F6D1F64002395DA /* CYXDownLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYXDownLoader.h; sourceTree = "<group>"; };
-		314CFF5D1F6D1F64002395DA /* CYXDownLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYXDownLoader.m; sourceTree = "<group>"; };
-		31C4F2DE1F703221003F4995 /* NSString+MD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
-		31C4F2DF1F703221003F4995 /* NSString+MD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
-		31C4F2E11F703382003F4995 /* CYXDownLoaderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYXDownLoaderManager.h; sourceTree = "<group>"; };
-		31C4F2E21F703382003F4995 /* CYXDownLoaderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYXDownLoaderManager.m; sourceTree = "<group>"; };
-		31C7332D1F6E725B00012DBF /* CYXFileTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYXFileTool.h; sourceTree = "<group>"; };
-		31C7332E1F6E725B00012DBF /* CYXFileTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYXFileTool.m; sourceTree = "<group>"; };
+		3177756F1F73FB16005A1E16 /* CYXDownLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYXDownLoader.h; sourceTree = "<group>"; };
+		317775701F73FB16005A1E16 /* CYXDownLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYXDownLoader.m; sourceTree = "<group>"; };
+		317775711F73FB16005A1E16 /* CYXDownLoaderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYXDownLoaderManager.h; sourceTree = "<group>"; };
+		317775721F73FB16005A1E16 /* CYXDownLoaderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYXDownLoaderManager.m; sourceTree = "<group>"; };
+		317775731F73FB16005A1E16 /* CYXFileTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYXFileTool.h; sourceTree = "<group>"; };
+		317775741F73FB16005A1E16 /* CYXFileTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYXFileTool.m; sourceTree = "<group>"; };
+		317775751F73FB16005A1E16 /* NSString+MD5.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		317775761F73FB16005A1E16 /* NSString+MD5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		3177757A1F74087E005A1E16 /* CYXMainController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CYXMainController.h; sourceTree = "<group>"; };
+		3177757B1F74087E005A1E16 /* CYXMainController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CYXMainController.m; sourceTree = "<group>"; };
 		31D1CE7A1F6D19B40040BCAC /* CYXDownLoader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CYXDownLoader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D1CE7D1F6D19B40040BCAC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		31D1CE7E1F6D19B40040BCAC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		31D1CE801F6D19B40040BCAC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		31D1CE811F6D19B40040BCAC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		31D1CE841F6D19B40040BCAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		31D1CE861F6D19B40040BCAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31D1CE891F6D19B40040BCAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,16 +50,26 @@
 		314CFF5B1F6D1F43002395DA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				314CFF5C1F6D1F64002395DA /* CYXDownLoader.h */,
-				314CFF5D1F6D1F64002395DA /* CYXDownLoader.m */,
-				31C7332D1F6E725B00012DBF /* CYXFileTool.h */,
-				31C7332E1F6E725B00012DBF /* CYXFileTool.m */,
-				31C4F2DE1F703221003F4995 /* NSString+MD5.h */,
-				31C4F2DF1F703221003F4995 /* NSString+MD5.m */,
-				31C4F2E11F703382003F4995 /* CYXDownLoaderManager.h */,
-				31C4F2E21F703382003F4995 /* CYXDownLoaderManager.m */,
+				3177756E1F73FB16005A1E16 /* DownLoadLib */,
+				3177757A1F74087E005A1E16 /* CYXMainController.h */,
+				3177757B1F74087E005A1E16 /* CYXMainController.m */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		3177756E1F73FB16005A1E16 /* DownLoadLib */ = {
+			isa = PBXGroup;
+			children = (
+				3177756F1F73FB16005A1E16 /* CYXDownLoader.h */,
+				317775701F73FB16005A1E16 /* CYXDownLoader.m */,
+				317775711F73FB16005A1E16 /* CYXDownLoaderManager.h */,
+				317775721F73FB16005A1E16 /* CYXDownLoaderManager.m */,
+				317775731F73FB16005A1E16 /* CYXFileTool.h */,
+				317775741F73FB16005A1E16 /* CYXFileTool.m */,
+				317775751F73FB16005A1E16 /* NSString+MD5.h */,
+				317775761F73FB16005A1E16 /* NSString+MD5.m */,
+			);
+			path = DownLoadLib;
 			sourceTree = "<group>";
 		};
 		31D1CE711F6D19B40040BCAC = {
@@ -88,8 +94,6 @@
 				314CFF5B1F6D1F43002395DA /* Classes */,
 				31D1CE7D1F6D19B40040BCAC /* AppDelegate.h */,
 				31D1CE7E1F6D19B40040BCAC /* AppDelegate.m */,
-				31D1CE801F6D19B40040BCAC /* ViewController.h */,
-				31D1CE811F6D19B40040BCAC /* ViewController.m */,
 				31D1CE831F6D19B40040BCAC /* Main.storyboard */,
 				31D1CE861F6D19B40040BCAC /* Assets.xcassets */,
 				31D1CE881F6D19B40040BCAC /* LaunchScreen.storyboard */,
@@ -170,13 +174,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31C4F2E01F703221003F4995 /* NSString+MD5.m in Sources */,
-				31D1CE821F6D19B40040BCAC /* ViewController.m in Sources */,
-				31C7332F1F6E725B00012DBF /* CYXFileTool.m in Sources */,
-				314CFF5E1F6D1F64002395DA /* CYXDownLoader.m in Sources */,
 				31D1CE8D1F6D19B40040BCAC /* main.m in Sources */,
 				31D1CE7F1F6D19B40040BCAC /* AppDelegate.m in Sources */,
-				31C4F2E31F703382003F4995 /* CYXDownLoaderManager.m in Sources */,
+				3177757C1F74087E005A1E16 /* CYXMainController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

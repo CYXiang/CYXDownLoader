@@ -19,6 +19,13 @@
            success:(SuccessBlockType)successBlock
             failed:(FailedBlockType)failedBlock;
 
+//- (void)downLoaderWithURLs:(NSArray *)urlArray
+//              downLoadInfo:(DownLoadInfoType)downLoadInfo
+//                  progress:(ProgressBlockType)progressBlock
+//                   success:(SuccessBlockType)successBlock
+//                    failed:(FailedBlockType)failedBlock;
+
+
 - (void)pauseWithURL:(NSURL *)url;
 - (void)resumeWithURL:(NSURL *)url;
 - (void)cancelWithURL:(NSURL *)url;

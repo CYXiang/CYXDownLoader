@@ -178,7 +178,6 @@
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:0];
     [request setValue:[NSString stringWithFormat:@"bytes=%lld-", offset] forHTTPHeaderField:@"Range"];
-    // session 分配的task, 默认情况, 挂起状态
     self.dataTask = [self.session dataTaskWithRequest:request];
     [self resumeCurrentTask];
 }
